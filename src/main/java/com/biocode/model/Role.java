@@ -1,7 +1,6 @@
 package com.biocode.model;
 
 import lombok.Data;
-import org.hibernate.procedure.spi.ParameterRegistrationImplementor;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.Entity;

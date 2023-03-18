@@ -31,4 +31,8 @@ public class AccountService implements UserDetailsService {
         accountRepo.save(account);
         return account;
     }
+
+    public Account findAccountByUsername(String username) {
+        return accountRepo.findAccountByUsername(username);
+    }
 }

@@ -11,7 +11,7 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
-    private String Content;
+    private String contentPost;
     private String image;
     private String startAt;
     private String endAt;
