@@ -3,6 +3,7 @@ package com.biocode.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -18,9 +19,7 @@ public class Account {
     private String  address;
     private String phone;
 
-    @ManyToOne
-    private Role role;
-
-
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Role> roles;
 
 }
