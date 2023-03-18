@@ -12,23 +12,23 @@ public class PostService {
     @Autowired
     private PostRepository postRepository;
 
-    List<Post> getAllPost() {
+    public List<Post> getAllPost() {
         return (List<Post>) postRepository.findAll();
     }
 
-    Post save(Post post) {
+    public Post save(Post post) {
         return postRepository.save(post);
     }
 
-    void deleteById(int id) {
+    public void deleteById(int id) {
         postRepository.deleteById(id);
     }
 
-    Post findPostById(int id) {
+    public Post findPostById(int id) {
        return postRepository.findById(id).get();
     }
 
-    Post findPostByTitle(String title) {
-        return postRepository.findPostByTitle(title);
+    public List<Post> findPostsByTitle(String title) {
+        return postRepository.findPostsByTitle(title);
     }
 }
