@@ -11,7 +11,7 @@ public class Blog {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
-    private String content;
+    private String contentBlog;
     private String image;
 
     @ManyToOne
