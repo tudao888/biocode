@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,8 +25,11 @@ public class PostController {
 
     @PostMapping
     public ResponseEntity<Post> createPost(@RequestBody Post post) {
+        String DateOfPost= new Date().toString();
+        post.setDateOfPost(DateOfPost);
         return new ResponseEntity<>(postService.save(post), HttpStatus.OK);
     }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Post> findPostById(@PathVariable int id) {

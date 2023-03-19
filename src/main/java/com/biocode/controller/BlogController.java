@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("blog")
+@RequestMapping("blogs")
 @CrossOrigin("*")
 public class BlogController {
     @Autowired
@@ -26,5 +26,10 @@ public class BlogController {
     @GetMapping("/allBlogByAccountId/{accountId}")
     public ResponseEntity<List<Blog>> findAllByAccount_Id(@PathVariable Integer accountId){
         return new ResponseEntity<>(blogService.findAllBlogByAccountId(accountId),HttpStatus.OK);
+    }
+
+    @GetMapping()
+    public ResponseEntity<List<Blog>> findAllBlog(){
+        return new ResponseEntity<>(blogService.findAllBlog(), HttpStatus.OK);
     }
 }

@@ -25,4 +25,7 @@ public class BlogService {
     public List<Blog> findAllBlogByAccountId(Integer accountId){
         return blogRepo.findAllByAccount_Id(accountId);
     }
+    public List<Blog> findAllBlog(){
+        return blogRepo.findAll();
+    }
 }
