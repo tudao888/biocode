@@ -7,6 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -26,7 +29,15 @@ public class PostController {
     @PostMapping
     public ResponseEntity<Post> createPost(@RequestBody Post post) {
         String DateOfPost= new Date().toString();
-        post.setDateOfPost(DateOfPost);
+        DateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
+        DateFormat formatter1 = new SimpleDateFormat("dd.MM.yyyy");
+        String date = "";
+        try {
+            date = formatter1.format(formatter.parse(DateOfPost));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        post.setDateOfPost(date);
         return new ResponseEntity<>(postService.save(post), HttpStatus.OK);
     }
 
