@@ -31,4 +31,5 @@ public class PostService {
     public List<Post> findPostsByTitle(String title) {
         return postRepository.findPostsByTitle(title);
     }
+
 }
